@@ -11,13 +11,31 @@ This repository contains a reusable OpenCode configuration for a planner/executo
 
 1. Clone this repository into `~/.config/opencode`.
 2. Copy `.env.example` to `.env` and set your own API keys.
-3. Export the variables before starting OpenCode:
+3. Add this block to `~/.bashrc`:
 
-```sh
+```bash
+if [ -r "$HOME/.config/opencode/.env" ]; then
+  set -a
+  source "$HOME/.config/opencode/.env"
+  set +a
+fi
+```
+
+4. Start a new terminal or reload Bash:
+
+```bash
+source ~/.bashrc
+opencode
+```
+
+The variables are then exported automatically for OpenCode and other commands launched from that shell.
+
+For a one-time manual load instead:
+
+```bash
 set -a
 . ~/.config/opencode/.env
 set +a
-opencode
 ```
 
 OpenCode supports `{env:VARIABLE_NAME}` interpolation in configuration values. The `.env` file is ignored by Git.
