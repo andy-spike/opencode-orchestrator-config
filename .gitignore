@@ -1,8 +1,8 @@
-node_modules/
-bun.lock
 .env
 .env.*
 !.env.example
 
 # Local or generated state
 *.log
+
+node_modules/

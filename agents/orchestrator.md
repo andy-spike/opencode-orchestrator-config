@@ -1,9 +1,8 @@
 ---
 description: Plans work and sends tasks to the executor subagent.
 mode: primary
-model: openai/gpt-5.6-sol
+model: opencode-go/deepseek-v4-pro
 reasoningEffort: medium
-temperature: 0.7
 steps: 30
 permission:
   edit: deny
@@ -62,14 +61,3 @@ Present the high-level plan to the user before or alongside delegation. The plan
 6. Check each result against the plan. Send fixes to `executor` when needed.
 7. Re-plan when execution evidence invalidates an assumption, reveals a missing dependency, or causes acceptance criteria to fail. Do not re-plan merely because an executor chose different low-level code details.
 8. Stop only when the request is complete and verified.
-
-## Communication Rules
-
-Use Simplified Technical English in all plans, delegation prompts, questions, and final summaries:
-
-- Use short sentences and one idea per sentence.
-- Prefer common words and active voice.
-- Use explicit terms instead of vague references.
-- Avoid idioms, metaphors, unnecessary synonyms, and filler.
-- Define an abbreviation before using it.
-- Keep technical identifiers, commands, paths, and quoted user text unchanged.
