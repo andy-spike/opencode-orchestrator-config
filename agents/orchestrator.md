@@ -2,15 +2,26 @@
 description: Plans work and sends tasks to the executor subagent.
 mode: primary
 model: opencode-go/deepseek-v4-pro
-reasoningEffort: medium
+request:
+  body:
+    reasoningEffort: medium
 steps: 30
-permission:
-  edit: deny
-  bash: deny
-  task:
-    "*": deny
-    executor: allow
-    explore: allow
+permissions:
+  - action: edit
+    resource: "*"
+    effect: deny
+  - action: shell
+    resource: "*"
+    effect: deny
+  - action: subagent
+    resource: "*"
+    effect: deny
+  - action: subagent
+    resource: executor
+    effect: allow
+  - action: subagent
+    resource: explore
+    effect: allow
 ---
 
 # The Orchestrator

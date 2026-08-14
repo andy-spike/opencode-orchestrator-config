@@ -1,8 +1,8 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "model": "opencode-go/deepseek-v4-pro",
   "default_agent": "build",
-  "plugin": ["@ex-machina/opencode-anthropic-auth@1.8.1"],
-  "agent": {
+  "agents": {
     "explore": {
       "model": "opencode-go/deepseek-v4-flash"
     },
@@ -11,17 +11,19 @@
     }
   },
   "mcp": {
-    "firecrawl": {
-      "type": "remote",
-      "url": "https://mcp.firecrawl.dev/v2/mcp",
-      "oauth": false,
-      "headers": {
-        "Authorization": "Bearer {env:FIRECRAWL_API_KEY}"
+    "servers": {
+      "firecrawl": {
+        "type": "remote",
+        "url": "https://mcp.firecrawl.dev/v2/mcp",
+        "oauth": false,
+        "headers": {
+          "Authorization": "Bearer {env:FIRECRAWL_API_KEY}"
+        }
       }
     }
   },
   "compaction": {
     "auto": true,
-    "reserved": 10000
+    "buffer": 10000
   }
 }
