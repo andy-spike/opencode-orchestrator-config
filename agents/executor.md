@@ -3,16 +3,11 @@ description: Runs delegated tasks and verifies the result.
 mode: subagent
 hidden: true
 model: opencode-go/deepseek-v4-flash
-request:
-  body:
-    reasoningEffort: max
-permissions:
-  - action: edit
-    resource: "*"
-    effect: allow
-  - action: shell
-    resource: "*"
-    effect: allow
+steps: 30
+reasoningEffort: max
+permission:
+  edit: allow
+  bash: allow
 ---
 
 # The Executor
